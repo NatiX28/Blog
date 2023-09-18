@@ -28,11 +28,11 @@ class Utilisateur
     private Collection $avis;
 
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Article::class)]
-    private Collection $lesArticles;
+    private Collection $listeArticles;
 
     public function __construct()
     {
-        $this->lesArticles = new ArrayCollection();
+        $this->listeArticles = new ArrayCollection();
     }
 
     public function __toString()
@@ -114,30 +114,31 @@ class Utilisateur
         return $this;
     }
 
+
     /**
      * @return Collection<int, Article>
      */
-    public function getLesArticles(): Collection
+    public function getListeArticles(): Collection
     {
-        return $this->lesArticles;
+        return $this->listeArticles;
     }
 
-    public function addLesArticle(Article $lesArticle): static
+    public function addListeArticle(Article $listeArticle): static
     {
-        if (!$this->lesArticles->contains($lesArticle)) {
-            $this->lesArticles->add($lesArticle);
-            $lesArticle->setUtilisateur($this);
+        if (!$this->listeArticles->contains($listeArticle)) {
+            $this->listeArticles->add($listeArticle);
+            $listeArticle->setUtilisateur($this);
         }
 
         return $this;
     }
 
-    public function removeLesArticle(Article $lesArticle): static
+    public function removeListeArticle(Article $listeArticle): static
     {
-        if ($this->lesArticles->removeElement($lesArticle)) {
+        if ($this->listeArticles->removeElement($listeArticle)) {
             // set the owning side to null (unless already changed)
-            if ($lesArticle->getUtilisateur() === $this) {
-                $lesArticle->setUtilisateur(null);
+            if ($listeArticle->getUtilisateur() === $this) {
+                $listeArticle->setUtilisateur(null);
             }
         }
 

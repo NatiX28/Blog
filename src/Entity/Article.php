@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,24 @@ class Article
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
+
+
+    #[ORM\OneToMany(mappedBy: 'larticle', targetEntity: Avis::class)]
+    private Collection $lesAvis;
+
+    #[ORM\ManyToOne(inversedBy: 'listeArticles')]
+    private ?Utilisateur $utilisateur = null;
+
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
+
+    public function __construct()
+    {
+        $this->lesAvis = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -64,5 +84,51 @@ class Article
 
         return $this;
     }
+
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getLesAvis(): Collection
+    {
+        return $this->lesAvis;
+    }
+
+    public function addLesAvi(Avis $lesAvi): static
+    {
+        if (!$this->lesAvis->contains($lesAvi)) {
+            $this->lesAvis->add($lesAvi);
+            $lesAvi->setLarticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesAvi(Avis $lesAvi): static
+    {
+        if ($this->lesAvis->removeElement($lesAvi)) {
+            // set the owning side to null (unless already changed)
+            if ($lesAvi->getLarticle() === $this) {
+                $lesAvi->setLarticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+  
+
 
 }

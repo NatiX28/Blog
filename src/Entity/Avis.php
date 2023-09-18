@@ -23,7 +23,9 @@ class Avis
     private ?Utilisateur $utilisateur = null;
 
     #[ORM\ManyToOne(inversedBy: 'lesAvis')]
-    private ?Article $article = null;
+    private ?Article $larticle = null;
+
+  
 
 
 
@@ -62,17 +64,19 @@ class Avis
         return $this;
     }
 
-    public function getArticle(): ?Article
+    public function getLarticle(): ?Article
     {
-        return $this->article;
+        return $this->larticle;
     }
 
-    public function setArticle(?Article $article): static
+    public function setLarticle(?Article $larticle): static
     {
-        $this->article = $article;
+        $this->larticle = $larticle;
 
         return $this;
     }
+
+   
 
    
 

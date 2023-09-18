@@ -34,7 +34,7 @@
   <div class="post-meta">
     <ul>
       <li>
-        <i class="ion-calendar"></i> 20, MAR 2020
+        <i class="ion-calendar"></i> {{article.date}}
       </li>
       <li>
         <i class="ion-android-people"></i> POSTED BY ADMIN
@@ -47,6 +47,8 @@
 {% else %}
 <p>no records found</p>
 {% endfor %}
+
+<a href="{{ path('app_article_new') }}">Create new</a>
 
 </div>
 <div class="post">
