@@ -17,7 +17,24 @@
               <li class="nav-item @@home">
 								<a class="nav-link" href="{{ path('app_index') }}">Home</a>
 							</li>
-                <li class="nav-item @@contact"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
+              <li class="nav-item @@contact"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
+              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item @@logout">
+                  <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item @@login">
+								  <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+							  </li>
+              {% endif %}
+              <li class="nav-item @@register">
+								<a class="nav-link" href="{{ path('app_register') }}">Register</a>
+							</li>
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item @@logout">
+                  <a class="nav-link" href="{{ path('admin') }}">Admin Panel</a>
+                </li>
+              {% endif %}
             </div>
           </nav>
         </div>

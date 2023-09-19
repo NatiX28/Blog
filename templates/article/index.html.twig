@@ -3,38 +3,33 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+    <h1>Liste des articles</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.contenu }}</td>
-                <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.contenu }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_article_new') }}">Create new</a>
+    {% for article in articles %}
+        <div class="page-wrapper">
+            <div class="post">
+                <div class="post-media post-thumb">
+                    <h3 class="post-title"><a href="blog-single.html">{{article.titre}}</a></h3>
+                    <div class="post-meta">
+                        <ul>
+                            <li>
+                                <i class="ion-calendar"></i>{{article.date|date("d/m/Y H:i")}}
+                            </li>
+                            <li>
+                                <i class="ion-android-people"></i> {{ article.utilisateur.pseudo}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="post-content">
+                        <p>{{ article.contenu }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun article disponible</p>
+    {% endfor %}
+    <a href="{{ path('app_article_new') }}">Ecrire un article</a>
 {% endblock %}
+
+
