@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Categorie;
 use App\Form\CategorieType;
+use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -83,6 +84,13 @@ class CategorieController extends AbstractController
     {
         return $this->render('categorie/menu.html.twig', [
             'categories' => $categorieRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/categorie/{libelle}/articles', name: 'app_article_categorie', methods: ['GET'])]
+    public function articlescategorie(Categorie $categorie, ArticleRepository $articleRepository){
+        return $this->render('article/index.html.twig', [
+        'articles' => $articleRepository->findByCategorie($categorie),
         ]);
     }
 

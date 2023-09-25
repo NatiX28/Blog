@@ -78,4 +78,13 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    public function recentArticles(ArticleRepository $articleRepository): Response
+    {
+        return $this->render('article/recent.html.twig', [
+            'articles' => $articleRepository->findRecent(),
+        ]);
+    }
+
+    
 }

@@ -1,3 +1,3 @@
 {% for categ in categories %}
-    <li><a class="dropdown-item" href="#">{{categ.libelle}}</a><li>
+    <li><a class="dropdown-item" href="{{path('app_article_categorie', {'libelle': categ.libelle})}}">{{categ.libelle}}</a><li>
 {% endfor %}

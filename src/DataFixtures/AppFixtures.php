@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
 
 
             $article = new Article();
-            $article->setTitre($faker->title());
+            $article->setTitre($faker->sentence($nbWords = 6, $variableNbWords = true));
             $article->setContenu($faker->text());
             $article->setDate($faker->dateTime());
 
