@@ -32,6 +32,9 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'listeArticles')]
     private ?Utilisateur $utilisateur = null;
 
+    #[ORM\ManyToOne(inversedBy: 'lesArticles')]
+    private ?Categorie $categorie = null;
+
 
     public function __toString()
     {
@@ -124,6 +127,18 @@ class Article
     public function setUtilisateur(?Utilisateur $utilisateur): static
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

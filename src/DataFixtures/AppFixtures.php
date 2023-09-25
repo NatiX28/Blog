@@ -6,6 +6,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Utilisateur;
+use App\Entity\Categorie;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -25,17 +26,22 @@ class AppFixtures extends Fixture
             $utilisateur->setPseudo($faker->name());
             $utilisateur->setMdp($faker->password());
             $utilisateur->setMail($faker->email());
-            
+
             $manager->persist($utilisateur);
+            
+
+            $categorie = new Categorie();
+            $categorie->setLibelle($faker->word());
+
+            $manager->persist($categorie);
 
 
             $article = new Article();
             $article->setTitre($faker->title());
             $article->setContenu($faker->text());
             $article->setDate($faker->dateTime());
-            $article->setUtilisateur($utilisateur);
 
-
+            
             $manager->persist($article);
 
             $manager->flush();

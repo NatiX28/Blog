@@ -17,7 +17,18 @@
               <li class="nav-item @@home">
 								<a class="nav-link" href="{{ path('app_index') }}">Home</a>
 							</li>
-              <li class="nav-item @@contact"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
+              <li class="nav-item @@logout"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
+              <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Catégorie
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  {{ render(controller(
+                      'App\\Controller\\CategorieController::findCateg'
+                    ))
+                  }}
+                </div>
+              </div>
               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li class="nav-item @@logout">
                   <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
