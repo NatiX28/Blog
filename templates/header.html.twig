@@ -17,7 +17,7 @@
               <li class="nav-item @@home">
 								<a class="nav-link" href="{{ path('app_index') }}">Home</a>
 							</li>
-              <li class="nav-item @@logout"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
+              <li class="nav-item @@articles"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
               <li class="nav-item dropdown @@categories">
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false"> Catégories <span class="ion-ios-arrow-down"></span></a>
@@ -28,6 +28,7 @@
                   }}
 								</ul>
               </li>
+              <li class="nav-item @@about"><a class="nav-link" href="{{ path('app_about') }}">A propos</a></li>
               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li class="nav-item @@logout">
                   <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
