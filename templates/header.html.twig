@@ -46,6 +46,11 @@
                   <a class="nav-link" href="{{ path('admin') }}">Admin Panel</a>
                 </li>
               {% endif %}
+              <li>
+                {{ render(controller(
+                  'App\\Controller\\ArticleController::search'
+                ))}}
+              </li>
             </div>
           </nav>
         </div>
