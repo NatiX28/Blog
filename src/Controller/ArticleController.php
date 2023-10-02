@@ -44,7 +44,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
+    #[Route('show/{id}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
@@ -97,16 +97,16 @@ class ArticleController extends AbstractController
     */
 
     #[Route('/search', name: 'app_article_search', methods: ['GET'])]
-    public function search(ArticleRepository $articleRepository)
+    public function search(Request $request) : Response
     {
         $form = $this->createFormBuilder(null,[
             'attr' => ['class' => 'form-inline'],
         ])
-        ->setAction($this->generateUrl('app_article_search'))
+        ->setAction($this->generateUrl('app_article_result'))
         ->add('search',TextType::class, [
             'label' => false,
             'attr' => ['placeholder' => 'Rechercher...', 
-                        'class' => 'form-control mr-sm-2']
+                       'class' => 'form-control mr-sm-2']
         ])
         ->add('submit', SubmitType::class,[
             'attr' => [ 'class' => 'btn btn-outline-success my-2 my-sm-0']
@@ -115,7 +115,7 @@ class ArticleController extends AbstractController
         ->getForm();
 
         return $this->render('article/search_form.html.twig', [
-            
+            'form' => $form->createView()   
         ]);
     }
 
@@ -123,9 +123,11 @@ class ArticleController extends AbstractController
     public function result(ArticleRepository $articleRepository, Request $request) : Response
     {
         $form = ($request->get('form'));
-        $search = $form('search');
-        $articles = $articleRepository->findBySearch($search);
-        return this->render('')
+        $search = $form['search'];
+        $article = $articleRepository->findBySearch($search);
+        return $this->render('article/index.html.twig', [
+            'articles' => $article
+        ]);
     }
 
     
