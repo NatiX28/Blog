@@ -70,7 +70,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_article_delete', methods: ['POST', 'GET'])]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
@@ -87,14 +87,7 @@ class ArticleController extends AbstractController
             'articles' => $articleRepository->findRecent(),
         ]);
     }
-
-    /* public function read (ArticleRepository $articleRepository, Article $article): Response
-    {
-        return $this->render('article/read.html.twig', [
-            'article' => $articleRepository->findOneById($article->getId()),
-        ]);
-    }
-    */
+    
 
     #[Route('/search', name: 'app_article_search', methods: ['GET'])]
     public function search(Request $request) : Response

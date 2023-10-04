@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.contenu}}</td>
+            </tr>
+            <tr>
+                <th>Utilisateur</th>
+                <td>{{ article.utilisateur.pseudo}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_article_index') }}" class="btn btn-main">back to list</a>
+
+    {% if is_granted('EDIT', article) %}
+        <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-main">edit</a>
+    {% endif %}
+
+{% endblock %}

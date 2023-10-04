@@ -38,7 +38,7 @@
                                 fugiat quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio vitae ab doloremque accusamus
                                 sit, eos dolorum officiis a perspiciatis aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing
                                 elit. Quod, facere. </p>
-                            <a href="{{article.id}}" class="btn btn-main">Read More</a>
+                            <a href="{{path('app_article_show', {'id': article.id})}}" class="btn btn-main">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <p>Aucun article trouvé</p>
             {% endfor %}
             </div>
-            <a href="{{path('app_article_new')}}">Ecrire un article</a>
+            <a href="{{path('app_article_new')}}" class="btn btn-main">Ecrire un article</a>
         </div>
     </div>
 
