@@ -7,35 +7,50 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\ApiResource;
 
+#[ApiResource(
+    normalizationContext: ['groups' => ['article']],
+)]
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['article'])]
     private ?int $id = null;
 
+    
     #[ORM\Column(length: 100)]
+    #[Groups(['article'])]
     private ?string $titre = null;
 
+    
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['article'])]
     private ?string $contenu = null;
 
+    
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['article'])]
     private ?\DateTimeInterface $date = null;
 
-
+    
     #[ORM\OneToMany(mappedBy: 'larticle', targetEntity: Avis::class)]
+    #[Groups(['article'])]
     private Collection $lesAvis;
 
+    #[Groups(['article'])]
     #[ORM\ManyToOne(inversedBy: 'listeArticles')]
     private ?Utilisateur $utilisateur = null;
 
+    
     #[ORM\ManyToOne(inversedBy: 'lesArticles')]
     private ?Categorie $categorie = null;
 
-
+    
     public function __toString()
     {
         return $this->titre;

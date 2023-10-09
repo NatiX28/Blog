@@ -19,8 +19,10 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
+        $categ = ["Animation", "Science-fiction","Action"];
+        $titre = ["Shrek","Star Wars","Avengers"];
 
-        for ($i=0; $i<5; $i++)
+        for ($i=0; $i<3; $i++)
         {
             $utilisateur = new Utilisateur();
             $utilisateur->setPseudo($faker->name());
@@ -31,13 +33,13 @@ class AppFixtures extends Fixture
             
 
             $categorie = new Categorie();
-            $categorie->setLibelle($faker->word());
+            $categorie->setLibelle($categ[$i]);
 
             $manager->persist($categorie);
 
 
             $article = new Article();
-            $article->setTitre($faker->sentence($nbWords = 6, $variableNbWords = true));
+            $article->setTitre($titre[$i]);
             $article->setContenu($faker->text());
             $article->setDate($faker->dateTime());
             $article->setCategorie($categorie);

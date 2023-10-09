@@ -4,7 +4,7 @@
         <h3>{{article.titre}}</h3>
         <p>{{article.contenu}}</p>
         <div class="user">
-            <img src="./public/{{article.utilisateur.image}}" alt="Pepole">
+            <img src="{{article.utilisateur.image}}" alt="People">
             <p><span>{{article.utilisateur.pseudo}}</span></p>
             <i class="ion-calendar"></i> <p>{{article.date|date("d/m/Y H:i")}}</p>
         </div>

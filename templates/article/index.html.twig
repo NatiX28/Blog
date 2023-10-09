@@ -2,13 +2,28 @@
 
 {% block title %}Article index{% endblock %}
 
+
+
 {% block body %}
 
+    <section class="slider">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="block">
+                <h1 class="animated fadeInUp"> CineBlog</h1>
+                <p class="animated fadeInUp">Retrouvez tous vos films préférés</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
 
 
     <div class="page-wrapper">
         <div class="container">
-            <h1>Liste des articles</h1>
+            <h1 class="haut-page">Tous nos articles</h1>
+            <br>
             <div class="row">
             {% for article in articles %}
                 <div class="col-md-6">
@@ -33,12 +48,9 @@
                             </ul>
                         </div>
                         <div class="post-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit vitae placeat ad architecto nostrum
-                                asperiores vel aperiam, veniam eum nulla. Maxime cum magnam, adipisci architecto quibusdam cumque veniam
-                                fugiat quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio vitae ab doloremque accusamus
-                                sit, eos dolorum officiis a perspiciatis aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Quod, facere. </p>
+                            <p>{{article.contenu}}</p>
                             <a href="{{path('app_article_show', {'id': article.id})}}" class="btn btn-main">Read More</a>
+                            <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main">Show API</a>
                         </div>
                     </div>
                 </div>

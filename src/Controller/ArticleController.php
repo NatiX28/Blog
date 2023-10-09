@@ -6,12 +6,22 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
+use Symfony\Component\Serializer\SerializerInterface;
+
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -52,9 +62,10 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_article_edit', methods: ['GET', 'POST'])]
+  
+    #[Route('/{id}/edit', name: 'app_article_edit',  methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
-    {
+    {   
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -123,5 +134,17 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/api/{id}', name: 'app_article_api', methods: ['GET'])]
+    public function serialize(Article $article, SerializerInterface $serializer) : JsonResponse
+    {
+
+        $jsonContent = $serializer->serialize($article, 'json', ['groups' => 'article']);
+        $response =  new JsonResponse($jsonContent);
+        
+        return $response;
+
+        
+
+    }
     
 }
