@@ -48,8 +48,8 @@
                             </ul>
                         </div>
                         <div class="post-content">
-                            <p>{{article.contenu}}</p>
-                            <a href="{{path('app_article_show', {'id': article.id})}}" class="btn btn-main">Read More</a>
+                            <p style="">{{article.description | raw }}</p>
+                            <a href="{{path('app_article_show', {'slug': article.slug})}}" class="btn btn-main">Read More</a>
                             <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main">Show API</a>
                         </div>
                     </div>

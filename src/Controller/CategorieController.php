@@ -6,6 +6,7 @@ use App\Entity\Categorie;
 use App\Form\CategorieType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
+use App\Service\Slugger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +32,8 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = new Slugger();
+            $categorie->setSlug($slug->slugify($categorie->getLibelle()));
             $entityManager->persist($categorie);
             $entityManager->flush();
 
@@ -87,7 +90,7 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/categorie/{libelle}/articles', name: 'app_article_categorie', methods: ['GET'])]
+    #[Route('/categorie/{slug}/articles', name: 'app_article_categorie', methods: ['GET'])]
     public function articlescategorie(Categorie $categorie, ArticleRepository $articleRepository){
         return $this->render('article/index.html.twig', [
         'articles' => $articleRepository->findByCategorie($categorie),

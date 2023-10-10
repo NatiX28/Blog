@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Service\Slugger;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,6 +43,8 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = new Slugger();
+            $article->setSlug($slug->slugify($article->getTitre()));
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -54,7 +57,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('show/{id}', name: 'app_article_show', methods: ['GET'])]
+    #[Route('show/{slug}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
@@ -81,7 +84,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_delete', methods: ['POST', 'GET'])]
+    #[Route('/{id}/delete', name: 'app_article_delete', methods: ['POST', 'GET'])]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
@@ -142,9 +145,6 @@ class ArticleController extends AbstractController
         $response =  new JsonResponse($jsonContent);
         
         return $response;
-
-        
-
     }
     
 }
