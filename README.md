@@ -15,7 +15,7 @@ Il faut installer php 8.2 or cette version est manquante dans les packages, il f
     
     sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 
-Puis mettez à jour le système avec `apt update` et vous pouvez installer php avec `sudpo apt install php8.2`
+Puis mettez à jour le système avec `apt update` et vous pouvez installer php avec `sudo apt install php8.2`
 
 Nous aurons également besoin de certaines extensions php :
 
