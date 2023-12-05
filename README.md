@@ -66,8 +66,8 @@ Allez ensuite dans le dossier que vous venez d'exporter et faite la commande `su
 
 Rendez-vous ensuite dans /etc/apache2/sites-available et modifier le fichier 000-default.conf et rajouter ceci :
 ```
-DocumentRoot /var/www/project/public
-    <Directory /var/www/project/public/>
+DocumentRoot /var/www/Blog/public
+    <Directory /var/www/Blog/public/>
         AllowOverride None
         Require all granted
         FallbackResource /index.php
