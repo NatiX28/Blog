@@ -71,7 +71,7 @@ DocumentRoot /var/www/project/public
         FallbackResource /index.php
     </Directory>
 ```
-Faite ensuite un `sudo sytemctl restart apache2`
+Faite ensuite un `sudo systemctl restart apache2`
 
 ## Base de donnée
 
