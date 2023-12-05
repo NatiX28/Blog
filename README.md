@@ -20,6 +20,8 @@ Puis mettez à jour le système avec `apt update` et vous pouvez installer php a
 Nous aurons également besoin de certaines extensions php :
 
     sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
+
+    sudo a2enmod rewrite
    
 Enfin activer le module fpm avec apache : `sudo a2enconf php8.2-fpm`
 
@@ -64,14 +66,14 @@ Allez ensuite dans le dossier que vous venez d'exporter et faite la commande `su
 
 Rendez-vous ensuite dans /etc/apache2/sites-available et modifier le fichier 000-default.conf et rajouter ceci :
 ```
-DocumentRoot /var/www/project/public
-    <Directory /var/www/project/public/>
+DocumentRoot /var/www/Blog/public
+    <Directory /var/www/Blog/public/>
         AllowOverride None
         Require all granted
         FallbackResource /index.php
     </Directory>
 ```
-Faite ensuite un `sudo sytemctl restart apache2`
+Faite ensuite un `sudo systemctl restart apache2`
 
 ## Base de donnée
 
