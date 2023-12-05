@@ -20,6 +20,8 @@ Puis mettez à jour le système avec `apt update` et vous pouvez installer php a
 Nous aurons également besoin de certaines extensions php :
 
     sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
+
+    sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
    
 Enfin activer le module fpm avec apache : `sudo a2enconf php8.2-fpm`
 
