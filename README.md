@@ -21,7 +21,7 @@ Nous aurons également besoin de certaines extensions php :
 
     sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
 
-    sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
+    sudo a2enmod rewrite
    
 Enfin activer le module fpm avec apache : `sudo a2enconf php8.2-fpm`
 
