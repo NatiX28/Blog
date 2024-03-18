@@ -17,6 +17,11 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted(
+            'is_granted("ROLE_ADMIN")',
+            message:"Vous n'avez pas accès à cette page"
+        );
+
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
         $url = $routeBuilder->setController(UtilisateurCrudController::class)->generateUrl();
 

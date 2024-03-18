@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{{ form_start(registrationForm) }}
+{{ form_widget(registrationForm) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(registrationForm) }}
+
+{% endblock %}
