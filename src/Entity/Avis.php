@@ -25,9 +25,6 @@ class Avis
     #[ORM\ManyToOne(inversedBy: 'lesAvis')]
     private ?Article $larticle = null;
 
-  
-
-
 
 
     public function __toString()
