@@ -16,6 +16,7 @@ use ApiPlatform\Metadata\ApiResource;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -65,6 +66,7 @@ class Article
     public function __construct()
     {
         $this->lesAvis = new ArrayCollection();
+        $this->date = new \DateTime('now');
     }
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <!-- Head -->
 {% include 'head.html.twig' %}
@@ -9,25 +9,28 @@
 <!-- Header -->
 {% include 'header.html.twig' %}
 
+
 <section class="feature bg-2">
   <div class="container">
     <div class="row justify-content-end">
       <div class="col-md-6">
-        <h2 class="section-subtitle">WE BELIEVE IN GREAT IDEAS</h2>
-        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce
-          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        <h2 class="section-subtitle">Le blog fait par des étudiants, pour des étudiants</h2>
+        <p> N'importe quel étudiant peut écrire un article. Parlez d'informatique, d'études, ou d'autres matière.
+            Ouvrez n'importe quel sujet de discussion qui pourret intéresser d'autres membres du BTS SIO.
         </p>
-        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce
-          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        <p>Vous avez des questions, n'hésitez pas, les autres élèves seront là pour y répondre.
+          Demandez de l'aide sur un de vos projets, ou répondez aux demandes d'autres élèves.
         </p>
-        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce
-          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        <p>Partagez vos entreprises, débattez sur votre poursuite d'études ou critiquez votre établissement.
+          Ce blog est aussi fait pour ceux qui recherche un BTS SIO ou qui l'ont finit.
         </p>
-        <a href="portfolio.html" class="btn btn-view-works">View Works</a>
+        <a href="{{ path('app_article_index') }}" class="btn btn-view-works">Voir les articles</a>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- Service Start -->
 <section class="service">
@@ -35,71 +38,41 @@
     <div class="row">
       <div class="col-12 text-center">
         <div class="section-title">
-          <h2>Our Services</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <br> there live the
-            blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+          <h2>Ce que nous proposons</h2>
+          <p>Des articles à dispositions de tous les étudiants en BTS SIO. <br>
+            Vous pouvez écrire des articles et laisser des commentaires ou des notes sur ceux que d'autres ont rédigé.  </p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="service-item">
-          <i class="icon ion-coffee"></i>
-          <h4>Branding</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+          <i class="ion-earth"></i>
+          <h4>Soyez connectés</h4>
+          <p>Partagez et discutez avec tous les étudiants en SIO de France sans distinctions </p>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="service-item">
-          <i class="ion-compass"></i>
-          <h4>Web Design</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="service-item">
-          <i class="ion-image"></i>
-          <h4>App Design</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+          <i class="ion-network"></i>
+          <h4>Créez votre réseau</h4>
+          <p>Créez vous un réseau facilement avec des étudiants ou des anciens étudiants partout en France. </p>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="service-item">
           <i class="ion-bug"></i>
-          <h4>Start Up</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+          <h4>Cybersécurité</h4>
+          <p>Aidez d'autres élèves à corrigez leurs failles de sécurités ou montrez les votres pour que quelqu'un puisse la résoudre  </p>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="service-item">
-          <i class="ion-headphone"></i>
-          <h4>Logo Design</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+          <i class="ion-clipboard"></i>
+          <h4>Entreprises</h4>
+          <p>Partagez vos entreprises pour aider d'autres étudiants à trouver un stage ou une alternance </p>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="service-item">
-          <i class="ion-leaf"></i>
-          <h4>Development</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="service-item">
-          <i class="ion-planet"></i>
-          <h4>Brand Identity</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="service-item">
-          <i class="ion-earth"></i>
-          <h4>Brand Identity</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 <!-- Call to action Start -->
 
@@ -108,10 +81,13 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block">
-					<h2 class="mb-3">We design delightful digital experiences.</h2>
-					<p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br> we’ve
-						achieved for other clients, and meet our highly experienced Team who just love to design.</p>
-					<a class="btn btn-main btn-solid-border" href="contact.html">Tell Us Your Story</a>
+					<h2 class="mb-3">C'est à vous de faire fonctionner le blog</h2>
+					<p>Parlez, partagez, conseillez, critiquez, tout est autorisé tant que c'est en rapport avec le BTS</p>
+          {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					  <a class="btn btn-main btn-solid-border" href="{{path('app_article_new')}}">Commencez à écrire</a>
+          {% else %}
+            <a class="btn btn-main btn-solid-border" href="{{path('app_login')}}">Connectez vous pour commencer à écrire</a>
+          {% endif %}
 				</div>
 			</div>
 		</div>
@@ -121,51 +97,8 @@
 <!-- Content Start -->
 <section class="testimonial">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-title text-center">
-          <h2>Fun Facts About Us</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <br> there live the
-            blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <div class="block">
-          <ul class="counter-box clearfix">
-            <li>
-              <div class="counter-item">
-                <i class="ion-ios-chatboxes-outline"></i>
-                <h4 class="count" data-count="99">0</h4>
-                <span>Cups Of Coffee</span>
-              </div>
-            </li>
-            <li>
-              <div class="counter-item">
-                <i class="ion-ios-glasses-outline"></i>
-                <h4 class="count" data-count="45">0</h4>
-                <span>Article Written</span>
-              </div>
-            </li>
-            <li>
-              <div class="counter-item">
-                <i class="ion-ios-compose-outline"></i>
-                <h4 class="count" data-count="125">0</h4>
-                <span>Projects Completed</span>
-              </div>
-            </li>
-            <li>
-              <div class="counter-item">
-                <i class="ion-ios-timer-outline"></i>
-                <h4 class="count" data-count="200">0</h4>
-                <span>Combined Projects</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-5 col-md-offset-1">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
         <div class="testimonial-carousel text-center">
           <div class="testimonial-slider owl-carousel">
             {{ render(controller(

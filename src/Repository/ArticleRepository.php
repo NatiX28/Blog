@@ -45,7 +45,7 @@ class ArticleRepository extends ServiceEntityRepository
     ->setMaxResults(3)
     ->getQuery()
     ->getResult()
-;
+    ;
    }
 
    public function findBySearch($search): array

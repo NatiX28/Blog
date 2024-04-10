@@ -2,47 +2,40 @@
 <header class="navigation">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg p-0">
-            <a class="navbar-brand" href="index.html">
-              <img src="{{asset('images/logo.png')}}" alt="Logo">
-            </a>
-
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="ion-android-menu"></span>
-            </button>
-
-            <div class="collapse navbar-collapse ml-auto" id="navbarsExample09">
-              <ul class="navbar-nav ml-auto">
-              <li class="nav-item @@home">
-								<a class="nav-link" href="{{ path('app_index') }}">Home</a>
-							</li>
+        <nav class="navbar navbar-expand-lg p-0">
+          <img src="{{asset('images/logo_sio.png')}}" alt="Logo">
+          <div class="collapse navbar-collapse ml-auto" id="navbarsExample09">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item @@Accueil">
+                <a class="nav-link" href="{{ path('app_index') }}">Accueil</a>
+              </li>
               <li class="nav-item @@articles"><a class="nav-link" href="{{ path('app_article_index') }}">Articles</a></li>
               <li class="nav-item dropdown @@categories">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"> Catégories <span class="ion-ios-arrow-down"></span></a>
-								<ul class="dropdown-menu" aria-labelledby="dropdown05">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false"> Catégories <span class="ion-ios-arrow-down"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
                   {{ render(controller(
                       'App\\Controller\\CategorieController::findCateg'
                     ))
                   }}
-								</ul>
+                  <a class="dropdown-item" href="{{ path('app_categorie_index') }}">...</a>
+                </ul>
               </li>
               <li class="nav-item @@about"><a class="nav-link" href="{{ path('app_about') }}">A propos</a></li>
               {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <li class="nav-item @@logout">
-                  <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                <li class="nav-item @@Déconnexion">
+                  <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>
               {% else %}
-                <li class="nav-item @@login">
-								  <a class="nav-link" href="{{ path('app_login') }}">Login</a>
-							  </li>
-                <li class="nav-item @@register">
-                  <a class="nav-link" href="{{ path('app_register') }}">Register</a>
+                <li class="nav-item @@S'authentifier">
+                  <a class="nav-link" href="{{ path('app_login') }}">S'authentifier</a>
+                </li>
+                <li class="nav-item @@S'inscrire">
+                  <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
                 </li>
               {% endif %}
               {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item @@logout">
+                <li class="nav-item @@admin">
                   <a class="nav-link" href="{{ path('admin') }}">Admin Panel</a>
                 </li>
               {% endif %}
@@ -51,9 +44,9 @@
                   'App\\Controller\\ArticleController::search'
                 ))}}
               </li>
-            </div>
-          </nav>
-        </div>
+            </ul>
+          </div>
+        </nav>
       </div>
     </div>
 

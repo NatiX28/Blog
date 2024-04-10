@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\SecurityBundle\Security;
 
 
 #[Route('/article')]
@@ -35,6 +36,11 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    public function __construct(
+        private Security $security,
+    ){
+    }
+
     #[Route('/new', name: 'app_article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -45,6 +51,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $slug = new Slugger();
             $article->setSlug($slug->slugify($article->getTitre()));
+            $article->setUtilisateur($this->security->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -94,6 +101,7 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 
     public function recentArticles(ArticleRepository $articleRepository): Response
     {
@@ -115,7 +123,7 @@ class ArticleController extends AbstractController
             'attr' => ['placeholder' => 'Rechercher...', 
                        'class' => 'form-control mr-sm-2']
         ])
-        ->add('submit', SubmitType::class,[
+        ->add('valider', SubmitType::class,[
             'attr' => [ 'class' => 'btn btn-outline-success my-2 my-sm-0']
         ])
         ->setMethod('GET')

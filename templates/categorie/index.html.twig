@@ -1,35 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
-
 {% block body %}
-    <h1>Categorie index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Libelle</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.libelle }}</td>
-                <td>
-                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <section class="slider">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="block">
+                <h1 class="animated fadeInUp"> Blog BTS SIO</h1>
+                <p class="animated fadeInUp">Retrouvez tous les articles du blog triés par catégories</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
 
-    <a href="{{ path('app_categorie_new') }}">Create new</a>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <h1 class="haut-page">Toutes nos catégories</h1>
+            <br>
+            <div class="row">
+            {% for categorie in categories %}
+                <div class="col-md-6">
+                    <div class="post">
+                        <div class="post-thumb">
+                            <a href="{{path('app_article_categorie', {'slug': categorie.slug})}}">
+                                <img class="img-fluid" src="{{asset('images/blog/blog-post-1.jpg')}}" alt="">
+                            </a>
+                        </div>
+                        <h3 class="post-title"><a href="{{path('app_article_categorie', {'slug': categorie.slug})}}">{{categorie.libelle}}</a></h3>
+                    </div>
+                </div>
+                {% else %}
+                    <p>Aucune catégorie trouvée</p>
+            {% endfor %}
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+
+
+
 {% endblock %}
+

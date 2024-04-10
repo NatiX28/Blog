@@ -1,11 +1,11 @@
 {% for article in articles %}
     <div>
         <i class="ion-quote"></i>
-        <h3>{{article.titre}}</h3>
-        <p>{{article.contenu}}</p>
+        <h4>{{article.titre}}</h4>
+        {{article.contenu | raw}}
         <div class="user">
             <img src="{{article.utilisateur.image}}" alt="People">
-            <p><span>{{article.utilisateur.pseudo}}</span></p>
+            <p><b>{{article.utilisateur.pseudo}}</b></p>
             <i class="ion-calendar"></i> <p>{{article.date|date("d/m/Y H:i")}}</p>
         </div>
     </div>

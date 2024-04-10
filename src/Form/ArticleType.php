@@ -10,14 +10,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ArticleType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('titre')
-            ->add('contenu', TextareaType::class, ['required'=> false])
+            ->add('contenu', TextareaType::class, ['required'=> true])
             ->add('description', TextareaType::class, ['required'=> false])
-            ->add('date')
-            ->add('utilisateur')
             ->add('categorie')
         ;
     }
@@ -27,5 +26,6 @@ class ArticleType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Article::class,
         ]);
+
     }
 }

@@ -21,6 +21,16 @@ class CategorieRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorie::class);
     }
 
+    public function findRecent(): array
+   {
+    return $this->createQueryBuilder('c')
+    ->orderBy('c.id', 'DESC')
+    ->setMaxResults(5)
+    ->getQuery()
+    ->getResult()
+    ;
+   }
+
 
 //    /**
 //     * @return Categorie[] Returns an array of Categorie objects
