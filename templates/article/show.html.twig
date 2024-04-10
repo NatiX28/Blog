@@ -5,30 +5,44 @@
 {% block body %}
 
 <section class="slider">
-        <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-            <div class="block">
-                <h1 class="animated fadeInUp"> {{article.titre}}</h1>
-            </div>
+                <div class="block">
+                    <h1 class="animated fadeInUp"> {{article.titre}}</h1>
+                </div>
             </div>
         </div>
+    </div>
+</section>
+<br>
+<br>
+<div class ="container">
+    <div class="row justify-content-arround">
+        <div class="col-md-6">
+            {{article.contenu | raw}}
         </div>
-    </section>
-
-    <div>
-        {{article.contenu | raw}}
     </div>
-
-    <div>
-        <h5>Ecrit par {{article.utilisateur.pseudo}}</h5>
-        <h6>Publié le {{article.date|date("d/m/Y H:i")}}</h6>
+    <br>
+    <div class="row justify-content-end">
+        <div class="col-md-4">
+            <h5>Ecrit par {{article.utilisateur.pseudo}}</h5>
+            <h6>Publié le {{article.date|date("d/m/Y H:i")}}</h6>
+        </div>
     </div>
+    <br> 
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <a href="{{ path('app_article_index') }}" class="btn btn-main" style="right:200px">back to list</a>
 
-    <a href="{{ path('app_article_index') }}" class="btn btn-main">back to list</a>
+            {% if is_granted('EDIT', article) or is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-main">edit</a>
+            {% endif %}
 
-    {% if is_granted('EDIT', article) or is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-main">edit</a>
-    {% endif %}
+            <a {% if is_granted('IS_AUTHENTICATED_FULLY') %} href="{{ path('app_avis_new') }}"{% else %} href="{{ path('app_login')}}"{% endif %} class="btn btn-main" style="right:200px">Laisser un avis</a>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

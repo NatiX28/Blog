@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
-
 
 
 {% block body %}
@@ -11,8 +9,8 @@
         <div class="row">
             <div class="col-md-12">
             <div class="block">
-                <h1 class="animated fadeInUp"> CineBlog</h1>
-                <p class="animated fadeInUp">Retrouvez tous vos films préférés</p>
+                <h1 class="animated fadeInUp"> Blog BTS SIO</h1>
+                <p class="animated fadeInUp">Retrouvez tous les posts écrits par les étudiants, des pros ou des professeurs</p>
             </div>
             </div>
         </div>
@@ -29,12 +27,11 @@
                 <div class="col-md-6">
                     <div class="post">
                         <div class="post-thumb">
-                            <a href="blog-single.html">
-                                <img class="img-fluid" src="{{asset('images/blog/blog-post-1.jpg')}}" alt="">
-                            </a>
+                            <img class="img-fluid" src="{{asset('images/blog/blog-post-1.jpg')}}" alt="">
                         </div>
-                        <h3 class="post-title"><a href="blog-single.html">{{article.titre}}</a></h3>
+                        <h3 class="post-title">{{article.titre}}</h3>
                         <div class="post-meta">
+                            {{article.description | raw}}
                             <ul>
                                 <li>
                                     <i class="ion-calendar"></i> {{article.date|date("d/m/Y H:i")}}
@@ -48,17 +45,22 @@
                             </ul>
                         </div>
                         <div class="post-content">
-                            <p style="">{{article.description | raw }}</p>
-                            <a href="{{path('app_article_show', {'slug': article.slug})}}" class="btn btn-main">Read More</a>
-                            <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main">Show API</a>
+                            <a href="{{path('app_article_show', {'slug': article.slug})}}" class="btn btn-main">Lire</a>
+                            <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main">Voir API</a>
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <p>Aucun article trouvé</p>
+                {% else %}
+                    <p>Aucun article trouvé</p>
             {% endfor %}
             </div>
-            <a href="{{path('app_article_new')}}" class="btn btn-main">Ecrire un article</a>
+            <div class="row">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{path('app_article_new')}}" class="btn btn-main" style="text-align:center; margin:auto;">Écrire un article</a>
+                {% else %}
+                    <a href="{{path('app_login')}}" class="btn btn-main" style="text-align:center; margin:auto;">Connectez vous pour écrire un article</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 

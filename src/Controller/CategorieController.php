@@ -86,7 +86,7 @@ class CategorieController extends AbstractController
     public function findCateg(CategorieRepository $categorieRepository): Response
     {
         return $this->render('categorie/menu.html.twig', [
-            'categories' => $categorieRepository->findAll(),
+            'categories' => $categorieRepository->findRecent(),
         ]);
     }
 
