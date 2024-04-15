@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ArticleType extends AbstractType
 {
@@ -15,7 +16,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu', TextareaType::class, ['required'=> true])
+            ->add('contenu', TextareaType::class, ['required'=> false])
             ->add('description', TextareaType::class, ['required'=> false])
             ->add('categorie')
         ;
