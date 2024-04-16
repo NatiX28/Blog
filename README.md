@@ -58,9 +58,9 @@ Le Blog SIO est un blog à destination des étudiants en BTS SIO pour leur perme
 
 Les technologies utilisées sur ce projet sont:
 
-- [PHP](https://expo.io/](https://www.php.net/))
-- [Symfony](https://nodejs.org/en/](https://symfony.com/))
-- [Bootstrap](https://pt-br.reactjs.org/](https://getbootstrap.com/))
+- [PHP](https://www.php.net/))
+- [Symfony](https://symfony.com/))
+- [Bootstrap](https://getbootstrap.com/))
 
 ## :white_check_mark: Requirements ##
 
