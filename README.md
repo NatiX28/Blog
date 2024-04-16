@@ -89,9 +89,8 @@ $ symfony server:start
 ## 🔑 Authentification ##
 
 Compte admin :
-<li><	<ul> Email : admin@sio.fr</ul>
-	<ul> Password : adminSIO </ul>
-</li>
+<ul> Email : admin@sio.fr</ul>
+<ul> Password : adminSIO </ul>
 Compte user :
 <li>
 	<ul> Email : user@sio.fr </ul>
