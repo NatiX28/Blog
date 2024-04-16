@@ -54,8 +54,8 @@ class Article
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $image = "/images/blog/blog-post-1.jpg";
 
     
     public function __toString()
@@ -178,17 +178,18 @@ class Article
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getImage(): ?string
     {
-        return $this->description;
+        return $this->image;
     }
 
-    public function setDescription(string $description): static
+    public function setImage(?string $image): static
     {
-        $this->description = $description;
+        $this->image = $image;
 
         return $this;
     }
+
 
   
 

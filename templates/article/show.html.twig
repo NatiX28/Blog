@@ -4,26 +4,32 @@
 
 {% block body %}
 
-<section class="slider">
+<br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="block">
-                    <h1 class="animated fadeInUp"> {{article.titre}}</h1>
+                    <img src="{{article.image}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h1 class="animated fadeInUp" style="text-align:center"> {{article.titre}}</h1>
                 </div>
             </div>
         </div>
     </div>
-</section>
 <br>
 <br>
 <div class ="container">
-    <div class="row justify-content-arround">
-        <div class="col-md-6">
-            {{article.contenu | raw}}
-        </div>
+    <div class="row justify-content-arround" id="contenu_article">
+        {{article.contenu | raw}}
     </div>
     <br>
+    <hr>
     <div class="row justify-content-end">
         <div class="col-md-4">
             <h5>Ecrit par {{article.utilisateur.pseudo}}</h5>
