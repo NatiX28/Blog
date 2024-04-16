@@ -52,6 +52,25 @@ class ArticleController extends AbstractController
             $slug = new Slugger();
             $article->setSlug($slug->slugify($article->getTitre()));
             $article->setUtilisateur($this->security->getUser());
+            $image = $form->get('image')->getData();
+
+            if($image){
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slug->slugify($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+
+                try{
+                    $image->move(
+                        $this->getParameter('articles_images_directory'),
+                        $newFilename
+                    );
+                } catch(FileException $e){
+                    console.log("Error - ".$e->getMessage()); 
+                }
+
+                $article->setImage($newFilename);
+            }
+
             $entityManager->persist($article);
             $entityManager->flush();
 
