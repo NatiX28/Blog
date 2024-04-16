@@ -19,19 +19,33 @@
 
 
     <div class="page-wrapper">
+        <h1 class="haut-page">Tous nos articles</h1>
+        <br>
+        <div class="row">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{path('app_article_new')}}" class="btn btn-main" style="text-align:center; margin:auto; border-radius:8px;">Écrire un article</a>
+            {% else %}
+                <a href="{{path('app_login')}}" class="btn btn-main" style="text-align:center; margin:auto;border-radius:8px;">Connectez vous pour écrire un article</a>
+            {% endif %}
+        </div>   
+        <br>
         <div class="container">
-            <h1 class="haut-page">Tous nos articles</h1>
-            <br>
-            <div class="row">
             {% for article in articles %}
-                <div class="col-md-6">
-                    <div class="post">
-                        <div class="post-thumb">
-                            <img class="img-fluid" src={{article.image}} alt="">
+                <div class="border-bottom border-primary p-2">
+                    <br>
+                    <div class="row align-item-center">
+                        <div class="col">
+                            <div class="post-thumb">
+                                <img class="img-fluid" src={{article.image}} alt="">
+                            </div>
                         </div>
-                        <h3 class="post-title">{{article.titre }}</h3>
-                        <div class="post-meta">
-                            {{[article.contenu| u.truncate(100)  , "..."] | join | raw}}
+                        <div class="col-5">
+                            <h3 class="post-title">{{article.titre }}</h3>
+                            <div class="post-meta">
+                                {{[article.contenu| u.truncate(100)  , "..."] | join | raw}}
+                            </div>
+                        </div>
+                        <div class="col">
                             <ul>
                                 <li>
                                     <i class="ion-calendar"></i> {{article.date|date("d/m/Y H:i")}}
@@ -40,27 +54,29 @@
                                     <i class="ion-android-people"></i> {{ article.utilisateur.pseudo}}
                                 </li>
                                 <li>
-                                    <a href="blog-grid.html"><i class="ion-pricetags"></i> {{ article.categorie.libelle}} </a>
+                                    <a href="{{path('app_article_categorie', {'slug': article.categorie.slug})}}"><i class="ion-pricetags"></i> {{ article.categorie.libelle}} </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="post-content">
                             <a href="{{path('app_article_show', {'slug': article.slug})}}" class="btn btn-main">Lire</a>
-                            <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main">Voir API</a>
+                            <br>
+                            <a href="{{ path('app_article_api', {'id': article.id}) }}" class="btn btn-main" style="margin-top:6px">Voir API</a>
                         </div>
                     </div>
+                <br>
                 </div>
                 {% else %}
                     <p>Aucun article trouvé</p>
             {% endfor %}
-            </div>
+            <br>
             <div class="row">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a href="{{path('app_article_new')}}" class="btn btn-main" style="text-align:center; margin:auto;">Écrire un article</a>
+                    <a href="{{path('app_article_new')}}" class="btn btn-main" style="text-align:center; margin:auto;border-radius:8px;">Écrire un article</a>
                 {% else %}
-                    <a href="{{path('app_login')}}" class="btn btn-main" style="text-align:center; margin:auto;">Connectez vous pour écrire un article</a>
+                    <a href="{{path('app_login')}}" class="btn btn-main" style="text-align:center; margin:auto;border-radius:8px;">Connectez vous pour écrire un article</a>
                 {% endif %}
-            </div>
+            </div>   
         </div>
     </div>
 

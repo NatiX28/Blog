@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Blog');
+            ->setTitle('Blog SIO');
     }
 
     public function configureMenuItems(): iterable
@@ -50,5 +50,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'app_index');
         yield MenuItem::linkToCrud('utilisateur', 'fas fa-map-marker-alt', Utilisateur::class);
         yield MenuItem::linkToCrud('article', 'fas fa-comments', Article::class);
+        yield MenuItem::linkToCrud('article', 'fas fa-comments', Categorie::class);
+       
     }
 }

@@ -2,11 +2,12 @@
     <div>
         <i class="ion-quote"></i>
         <h4>{{article.titre}}</h4>
-        {{article.contenu | raw}}
+        {{[article.contenu| u.truncate(100)  , "..."] | join | raw}}
         <div class="user">
             <img src="{{article.utilisateur.image}}" alt="People">
             <p><b>{{article.utilisateur.pseudo}}</b></p>
             <i class="ion-calendar"></i> <p>{{article.date|date("d/m/Y H:i")}}</p>
         </div>
+        <a href="{{path('app_article_show', {'slug': article.slug})}}" class="btn btn-main" style="font-size:12px; padding:10px; border-radius:4px">Lire plus</a>
     </div>
 {% endfor %}

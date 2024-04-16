@@ -44,6 +44,7 @@ security:
     access_control:
         # require ROLE_ADMIN for /admin
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/categorie/new, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
