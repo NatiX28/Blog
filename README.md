@@ -92,10 +92,8 @@ Compte admin :
 <ul> Email : admin@sio.fr</ul>
 <ul> Password : adminSIO </ul>
 Compte user :
-<li>
 	<ul> Email : user@sio.fr </ul>
 	<ul> Password : userSIO</ul>
-</li>
 
 
 ## :memo: License ##
