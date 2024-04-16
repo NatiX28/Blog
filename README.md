@@ -19,9 +19,9 @@
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/NatiX28/blog?color=56BEB8" /> -->
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/NatiX28/blog?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
@@ -50,19 +50,17 @@ Le Blog SIO est un blog à destination des étudiants en BTS SIO pour leur perme
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Créer des articles en rapport avec une catégorie définie;\
+:heavy_check_mark: Consulter les articles sans avoir besoins de se connecter;\
+:heavy_check_mark: Laisser des avis et des commentaires;
 
 ## :rocket: Technologies ##
 
-The following tools were used in this project:
+Les technologies utilisées sur ce projet sont:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [PHP](https://expo.io/](https://www.php.net/))
+- [Symfony](https://nodejs.org/en/](https://symfony.com/))
+- [Bootstrap](https://pt-br.reactjs.org/](https://getbootstrap.com/))
 
 ## :white_check_mark: Requirements ##
 
