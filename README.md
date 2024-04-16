@@ -58,13 +58,15 @@ Le Blog SIO est un blog à destination des étudiants en BTS SIO pour leur perme
 
 Les technologies utilisées sur ce projet sont:
 
-- [PHP](https://www.php.net/))
-- [Symfony](https://symfony.com/))
-- [Bootstrap](https://getbootstrap.com/))
+- [PHP](https://www.php.net/)
+- [Symfony](https://symfony.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Le lancement du blog nécessite : 
+- php8.2
+- Symfony 6.3 
 
 ## :checkered_flag: Starting ##
 
