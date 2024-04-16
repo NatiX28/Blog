@@ -89,8 +89,8 @@ $ symfony server:start
 ## 🔑 Authentification ##
 
 Pour vous connecter, vous pouvez utiliser le compte :
-	admin : admin@sio.fr / adminSIO
-	user : user@sio.fr / userSIO
+	- admin : admin@sio.fr / adminSIO
+	- user : user@sio.fr / userSIO
 
 
 ## :memo: License ##
