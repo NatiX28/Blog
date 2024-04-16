@@ -71,29 +71,29 @@ Le lancement du blog nécessite :
 ## :checkered_flag: Starting ##
 
 ```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/blog
+# Clonez le projet
+$ git clone https://github.com/NatiX28/blog
 
-# Access
-$ cd blog
+# Dans le dossier
+$ composer install
 
-# Install dependencies
-$ yarn
+La base de donnée est disponible dans le fichier data.db, il n'y a donc pas de manipulation nécessaire. Cependant vous aurez peut-être besoin d'activer l'extension sqlite de php
+#php.ini
+$ extension=pdo_sqlite
 
-# Run the project
-$ yarn start
+# Le serveur se lancera sur http://localhost:8000
+$ symfony server:start
 
-# The server will initialize in the <http://localhost:3000>
-```
-
-activer l'extension sqlite de php.ini
+Pour vous connecter, vous pouvez utiliser le compte :
+	admin : admin@sio.fr / adminSIO
+	user : user@sio.fr / userSIO
 
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/NatiX28}" target="_blank">Matis GASSE</a>
 
 &#xa0;
 
