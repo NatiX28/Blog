@@ -68,7 +68,7 @@ class ArticleController extends AbstractController
                     console.log("Error - ".$e->getMessage()); 
                 }
 
-                $article->setImage($newFilename);
+                $article->setImage("/images/articles/".$newFilename);
             }
 
             $entityManager->persist($article);
