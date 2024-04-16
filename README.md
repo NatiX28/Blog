@@ -84,10 +84,13 @@ $ extension=pdo_sqlite
 # Le serveur se lancera sur http://localhost:8000
 $ symfony server:start
 
+```
+
+## 🔑 Authentification ##
+
 Pour vous connecter, vous pouvez utiliser le compte :
 	admin : admin@sio.fr / adminSIO
 	user : user@sio.fr / userSIO
-```
 
 
 ## :memo: License ##
@@ -95,7 +98,7 @@ Pour vous connecter, vous pouvez utiliser le compte :
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/NatiX28}" target="_blank">Matis GASSE</a>
+Made with :heart: by <a href="https://github.com/NatiX28" target="_blank">Matis GASSE</a>
 
 &#xa0;
 
