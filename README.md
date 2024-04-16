@@ -72,7 +72,7 @@ Le lancement du blog nécessite :
 
 ```bash
 # Clonez le projet
-$ git clone https://github.com/NatiX28/blog
+$ git clone https://github.com/NatiX28/Blog-SIO
 
 # Dans le dossier
 $ composer install
