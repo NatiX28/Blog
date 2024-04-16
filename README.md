@@ -88,6 +88,7 @@ Pour vous connecter, vous pouvez utiliser le compte :
 	admin : admin@sio.fr / adminSIO
 	user : user@sio.fr / userSIO
 
+
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
