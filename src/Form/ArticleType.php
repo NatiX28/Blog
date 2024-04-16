@@ -10,6 +10,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ArticleType extends AbstractType
 {
@@ -31,6 +33,20 @@ class ArticleType extends AbstractType
                 ]
             ])
             ->add('categorie')
+            ->add('image',FileType::class,[
+                'label' => 'Image pour illustrer l\'article (jpg,png,...)',
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'images/jpeg',
+                            'images/png',
+                        ],
+                        'mimeTypesMessage' => 'Charger un fichier d\'image valide',
+                    ])
+                ]
+            ])
         ;
     }
 

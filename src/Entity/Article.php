@@ -55,7 +55,7 @@ class Article
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $image = null;
+    private ?string $image = "/images/blog/blog-post-1.jpg";
 
     
     public function __toString()

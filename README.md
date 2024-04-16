@@ -1,104 +1,98 @@
-# Documentation installation VM
+<div align="center" id="top"> 
+  <img src="./.github/app.gif" alt="Blog" />
 
-Commencer par installer un serveur linux (à savoir que cette doc a été faite par rapport à une VM debian 11 donc pas sûr que ça marche exactement pareil sur une autre version).
-  
-Faire un `apt update` ainsi qu’un `apt upgrade` pour être sûr d’avoir son système à jour.
+  &#xa0;
 
+  <!-- <a href="https://blog.netlify.app">Demo</a> -->
+</div>
 
-## Php
+<h1 align="center">Blog</h1>
 
-Il faut installer php 8.2 or cette version est manquante dans les packages, il faut donc les mettre à jour grâce aux commandes suivantes :
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
 
-    sudo apt install lsb-release apt-transport-https ca-certificates software-properties-common -y
-    
-    sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-    
-    sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
 
-Puis mettez à jour le système avec `apt update` et vous pouvez installer php avec `sudo apt install php8.2`
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
 
-Nous aurons également besoin de certaines extensions php :
+  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
 
-    sudo apt-get install php8.2-{dom,zip,mysql,xml,fpm,bz2,mbstring,intl}
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
 
-    sudo a2enmod rewrite
-   
-Enfin activer le module fpm avec apache : `sudo a2enconf php8.2-fpm`
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
 
-## Symfony
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+</p>
 
-**Composer**
-Pour installer Symfony nous aurons d'abord besoins de composer :
+<!-- Status -->
 
-    sudo apt-get install wget php-cli php-xml php-zip php-mbstring unzip -y
-    
-    sudo wget -O composer-setup.php https://getcomposer.org/installer
+<!-- <h4 align="center"> 
+	🚧  Blog 🚀 Under construction...  🚧
+</h4> 
 
-    sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+<hr> -->
 
-Vérifier que vous avez réussi l'installation avec : `composer --version`
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+</p>
 
-**Symfony**
-Ensuite installez Symfony 6 :
-`sudo curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash` (vous aurez peut-être besoin d'installer curl : `sudo apt-get install curl`)
+<br>
 
-Puis : `sudo apt install symfony-cli`
+## :dart: About ##
 
-Enfin vérifier l'installation avec `symfony -V`
+Describe your project
 
-## Git
+## :sparkles: Features ##
 
-Nous allons ensuite avoir besoin d'installer git : 
+:heavy_check_mark: Feature 1;\
+:heavy_check_mark: Feature 2;\
+:heavy_check_mark: Feature 3;
 
-    sudo apt install git
+## :rocket: Technologies ##
 
-Vous pouvez vérifier avec `git --version`
+The following tools were used in this project:
 
-## Apache
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-Commençons par installer apache :  `sudo apt install apache2`
+## :white_check_mark: Requirements ##
 
-Installez ensuite la librairie php pour apache : `sudo apt install libapache2-mod-php8.2`et activer la `sudo a2enmod php8.2`
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
-Rendez vous dans le dossier /var/www (dossier auquel Apache va accéder) puis clonez le projet : `sudo git clone https://github.com/NatiX28/Blog.git`
+## :checkered_flag: Starting ##
 
-Allez ensuite dans le dossier que vous venez d'exporter et faite la commande `sudo composer install` et `sudo composer require symfony/apache-pack`. Cela permet d'installer tous les composants nécessaires à Symfony.
+```bash
+# Clone this project
+$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/blog
 
-Rendez-vous ensuite dans /etc/apache2/sites-available et modifier le fichier 000-default.conf et rajouter ceci :
+# Access
+$ cd blog
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn start
+
+# The server will initialize in the <http://localhost:3000>
 ```
-DocumentRoot /var/www/Blog/public
-    <Directory /var/www/Blog/public/>
-        AllowOverride None
-        Require all granted
-        FallbackResource /index.php
-    </Directory>
-```
-Faite ensuite un `sudo systemctl restart apache2`
 
-## Base de donnée
+## :memo: License ##
 
-Comme il est mieux de faire sa base de donnée dans une DMZ, il vaut mieux la faire sur un autre serveur Linux (mais bon je vais pas vous apprendre votre cours de cybersécurité).
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Donc sur une 2nd serveur installez mariadb : `sudo apt install mariadb-server`
 
-Allez dans mariadb avec la commande `mariadb` puis créez un utilisateur avec un mot de passe et donner lui tous les privilèges : 
+Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
 
-    CREATE USER 'username'@'%' IDENTIFIED BY 'password';
-    GRANT ALL PRIVILEGES ON *.* TO 'prenom'@'%' IDENTIFIED BY 'MOTDEPASSE';
-    FLUSH PRIVILEGES;
- 
-Allez ensuite dans /etc/mysql/mariadb.conf.d puis `sudo nano 50-server` et changer la bind-address pour 0.0.0.0
+&#xa0;
 
-Ensuite connecter vous à mariadb avec votre nouvelle utilisateur `mariadb -u [username] -p` puis créez une base de données avec `create database [database_name] ;`
-
-  
-Après il va falloir configurer symfony pour changer le chemin d’accès vers votre BDD. 
-Allez dans /var/www/Blog puis modifier le fichier .env avec `sudo nano .env` puis changer la ligne « DATABASE_URL » ainsi :
-
-    "mysql://[username]:[password]@[ip]:3306/[database_name]?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
-
- Ensuite pour migrer la base donnée du code vers votre base de donnée nouvellement crée faite `php bin/console make:migration` puis `php bin/console doctrine:migrations:migrate`
-
-Pour remplir la base de donnée, vous pouvez faire `php bin/console doctrine:fixtures:load`, cela va remplir la base de donnée d'éléments aléatoire mais vous pouvez aussi rajouter des éléments manuellement.
-
-**Ensuite vous devriez pouvoir accéder au blog via votre IP dans votre dans un navigateur.**
+<a href="#top">Back to top</a>
