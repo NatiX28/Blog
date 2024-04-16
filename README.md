@@ -77,8 +77,9 @@ $ git clone https://github.com/NatiX28/Blog-SIO
 # Dans le dossier
 $ composer install
 
-La base de donnée est disponible dans le fichier data.db, il n'y a donc pas de manipulation nécessaire. Cependant vous aurez peut-être besoin d'activer l'extension sqlite de php
-#php.ini
+La base de donnée est disponible dans le fichier data.db, il n'y a donc pas de manipulation nécessaire.
+Cependant vous aurez peut-être besoin d'activer l'extension sqlite de php
+# php.ini
 $ extension=pdo_sqlite
 
 # Le serveur se lancera sur http://localhost:8000
