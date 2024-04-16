@@ -46,7 +46,7 @@
 
 ## :dart: About ##
 
-Describe your project
+Le Blog SIO est un blog à destination des étudiants en BTS SIO pour leur permettre de partager sur des sujets liés au BTS, de poser des questions, de chercher un stage, ect.
 
 ## :sparkles: Features ##
 
