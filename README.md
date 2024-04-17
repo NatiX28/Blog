@@ -9,19 +9,19 @@
 <h1 align="center">Blog</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/NatiX28/blog?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/NatiX28/blog?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/NatiX28/blog?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/NatiX28/blog?color=56BEB8">
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/NatiX28/blog?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/NatiX28/blog?color=56BEB8" /> -->
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/blog?color=56BEB8" /> -->
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/NatiX28/blog?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
