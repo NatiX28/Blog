@@ -4,22 +4,18 @@
 
 {% block body %}
 
+<hr>
 <br>
     <div class="container">
+        
         <div class="row">
             <div class="col-md-12">
-                <div class="block">
-                    <img src="{{article.image}}">
-                </div>
+                <h1 class="animated fadeInUp" style="text-align:center"> {{article.titre}}</h1>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="block">
-                    <h1 class="animated fadeInUp" style="text-align:center"> {{article.titre}}</h1>
-                </div>
-            </div>
+        <div class="row justify-content-center">
+            <img src="{{article.image}}" class="img-fluid">
         </div>
     </div>
 <br>
@@ -32,7 +28,7 @@
     <hr>
     <div class="row justify-content-end">
         <div class="col-md-4">
-            <h5>Ecrit par {{article.utilisateur.pseudo}}</h5>
+            <h5>Écrit par {{article.utilisateur.pseudo}}</h5>
             <h6>Publié le {{article.date|date("d/m/Y H:i")}}</h6>
         </div>
     </div>

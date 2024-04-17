@@ -37,15 +37,7 @@ class ArticleType extends AbstractType
                 'label' => 'Image pour illustrer l\'article (jpg,png,...)',
                 'required' => false,
                 'mapped' => false,
-                'constraints' => [
-                    new File([
-                        'mimeTypes' => [
-                            'images/jpeg',
-                            'images/png',
-                        ],
-                        'mimeTypesMessage' => 'Charger un fichier d\'image valide',
-                    ])
-                ]
+ 
             ])
         ;
     }

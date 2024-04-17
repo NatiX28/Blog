@@ -44,7 +44,6 @@ class AppFixtures extends Fixture
             $article->setContenu($faker->text());
             $article->setDate($faker->dateTime());
             $article->setCategorie($categorie);
-            $article->setDescription($faker->text());
             $article->setSlug($titre[$i]);
             $article->setUtilisateur($utilisateur);
 

@@ -39,59 +39,69 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/NatiX28" target="_blank">Author</a>
 </p>
 
 <br>
 
 ## :dart: About ##
 
-Describe your project
+Le Blog SIO est un blog à destination des étudiants en BTS SIO pour leur permettre de partager sur des sujets liés au BTS, de poser des questions, de chercher un stage, ect.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Créer des articles en rapport avec une catégorie définie;\
+:heavy_check_mark: Consulter les articles sans avoir besoins de se connecter;\
+:heavy_check_mark: Laisser des avis et des commentaires;
 
 ## :rocket: Technologies ##
 
-The following tools were used in this project:
+Les technologies utilisées sur ce projet sont:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [PHP](https://www.php.net/)
+- [Symfony](https://symfony.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Le lancement du blog nécessite : 
+- php8.2
+- Symfony 6.3 
 
 ## :checkered_flag: Starting ##
 
 ```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/blog
+# Clonez le projet
+$ git clone https://github.com/NatiX28/Blog-SIO
 
-# Access
-$ cd blog
+# Dans le dossier
+$ composer install
 
-# Install dependencies
-$ yarn
+# La base de donnée est disponible dans le fichier data.db, il n'y a donc pas de manipulation nécessaire.
+# Cependant vous aurez peut-être besoin d'activer l'extension sqlite de php dans le fichier php.ini
+$ extension=pdo_sqlite
 
-# Run the project
-$ yarn start
+# Le serveur se lancera sur http://localhost:8000
+$ symfony server:start
 
-# The server will initialize in the <http://localhost:3000>
 ```
+
+## 🔑 Authentification ##
+
+Compte admin :
+<ul> Email : admin@sio.fr</ul>
+<ul> Password : adminSIO </ul>
+Compte user :
+<ul> Email : user@sio.fr </ul>
+<ul> Password : userSIO</ul>
+
 
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/NatiX28" target="_blank">Matis GASSE</a>
 
 &#xa0;
 
