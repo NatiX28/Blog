@@ -39,7 +39,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $listeArticles;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image = null;
+    private ?string $image = "/images/profil/default.png";
 
 
     public function __construct()
