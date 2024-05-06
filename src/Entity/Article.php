@@ -26,11 +26,13 @@ class Article
     
     #[ORM\Column(length: 100)]
     #[Groups(['article'])]
+    #[Assert\NotBlank]
     private ?string $titre = null;
 
     
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['article'])]
+    #[Assert\NotBlank]
     private ?string $contenu = null;
 
     
@@ -49,6 +51,7 @@ class Article
 
     
     #[ORM\ManyToOne(inversedBy: 'lesArticles')]
+    #[Assert\NotBlank]
     private ?Categorie $categorie = null;
 
     #[ORM\Column(length: 255, nullable: true)]
