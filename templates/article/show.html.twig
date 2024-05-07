@@ -27,6 +27,9 @@
     <br>
     <hr>
     <div class="row justify-content-end">
+        <div class="col-md-1">
+            <img src="{{article.utilisateur.image}}" alt="People" height="60" width="60">
+        </div>
         <div class="col-md-4">
             <h5>Écrit par {{article.utilisateur.pseudo}}</h5>
             <h6>Publié le {{article.date|date("d/m/Y H:i")}}</h6>

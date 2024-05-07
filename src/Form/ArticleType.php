@@ -1,4 +1,4 @@
-<?php
+<?php        
 
 namespace App\Form;
 
@@ -37,7 +37,6 @@ class ArticleType extends AbstractType
                 'label' => 'Image pour illustrer l\'article (jpg,png,...)',
                 'required' => false,
                 'mapped' => false,
- 
             ])
         ;
     }

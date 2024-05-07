@@ -2,7 +2,7 @@
     <div>
         <i class="ion-quote"></i>
         <h4>{{article.titre}}</h4>
-        {{[article.contenu| u.truncate(100)  , "..."] | join | raw}}
+        {{article.contenu| u.truncate(100, ' ...', false) | raw}}
         <div class="user">
             <img src="{{article.utilisateur.image}}" alt="People">
             <p><b>{{article.utilisateur.pseudo}}</b></p>

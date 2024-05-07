@@ -9,6 +9,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 #[ApiResource(
     normalizationContext: ['groups' => ['article']],
@@ -49,6 +51,7 @@ class Article
 
     
     #[ORM\ManyToOne(inversedBy: 'lesArticles')]
+    #[Assert\NotBlank]
     private ?Categorie $categorie = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -191,6 +194,11 @@ class Article
     }
 
 
+    // Contrainte pour obliger à selectionner une catégorie
+    public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    {
+        $metadata->addPropertyConstraint('categorie', new Assert\NotNull());
+    }
   
 
 

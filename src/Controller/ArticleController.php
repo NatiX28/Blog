@@ -71,6 +71,8 @@ class ArticleController extends AbstractController
                 $article->setImage("/images/articles/".$newFilename);
             }
 
+            //$article->setContenu($form->get('contenu')->getData());
+
             $entityManager->persist($article);
             $entityManager->flush();
 

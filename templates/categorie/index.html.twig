@@ -20,23 +20,17 @@
         <div class="container">
             <h1 class="haut-page">Toutes nos catégories</h1>
             <br>
-            <div class="row">
-            {% for categorie in categories %}
-                <div class="col-md-6">
-                    <div class="post">
-                        <div class="post-thumb">
-                            <a href="{{path('app_article_categorie', {'slug': categorie.slug})}}">
-                                <img class="img-fluid" src="{{asset('images/blog/blog-post-1.jpg')}}" alt="">
-                            </a>
-                        </div>
-                        <h3 class="post-title"><a href="{{path('app_article_categorie', {'slug': categorie.slug})}}">{{categorie.libelle}}</a></h3>
-                    </div>
+            <div class="card" style="width: 22rem;">
+                <div class="card-header" style="color:#fff; text-decoration: underline;">
+                    Choisissez parmi :
                 </div>
-                {% else %}
-                    <p>Aucune catégorie trouvée</p>
-            {% endfor %}
-            </div>
-            <div class="row">
+                <ul class="list-group list-group-flush" >
+                    {% for categorie in categories %}
+                        <li class="list-group-item"><a href="{{path('app_article_categorie', {'slug': categorie.slug})}}" id="lien_categ">{{categorie.libelle}}</a></li>
+                    {% else %}
+                        <p>Aucune catégorie trouvée</p>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

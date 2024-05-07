@@ -83,19 +83,19 @@ a:focus,
 a:hover {
   text-decoration: none;
   outline: 0;
-  color: #655E7A;
+  color: #1c5c93;
 }
 
 blockquote {
   font-size: 18px;
-  border-left: 5px solid #655E7A;
+  border-left: 5px solid #1c5c93;
   padding: 20px 40px;
   text-align: left;
   color: #777;
 }
 
 .navbar-toggle .icon-bar {
-  background: #655E7A;
+  background: #1c5c93;
 }
 
 input[type=email],
@@ -112,7 +112,7 @@ input[type=password]:focus,
 input[type=text]:focus,
 input[type=tel]:focus {
   box-shadow: none;
-  border: 1px solid #655E7A;
+  border: 1px solid #1c5c93;
 }
 
 .form-control {
@@ -121,7 +121,7 @@ input[type=tel]:focus {
 }
 .form-control:focus {
   box-shadow: none;
-  border: 1px solid #655E7A;
+  border: 1px solid #1c5c93;
 }
 
 .slick-slide {
@@ -742,7 +742,7 @@ header .navbar-default .navbar-nav li a:hover {
   transition: all 0.3s ease;
 }
 .navigation .navbar .dropdown-menu a:focus, .navigation .navbar .dropdown-menu a:hover {
-  background: #655E7A;
+  background: #428bca;
   color: #fff;
 }
 
@@ -2695,4 +2695,28 @@ i{
 #contenu_article{
   color:#222222;
   font-size: 16px;
+}
+
+.card {
+  margin: 0 auto; 
+  float: none; 
+  text-align: center;
+  background-color: #428bca;
+}
+
+.card-header{
+  font-size: 26px;
+}
+
+.list-group-item:hover {
+  background-color: #1c5c93;
+  font-size: 22px;
+}
+
+#lien_categ{
+  color: #222222;
+}
+
+#lien_categ:hover{
+  color:#fff;
 }

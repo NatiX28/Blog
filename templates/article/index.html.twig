@@ -42,7 +42,7 @@
                         <div class="col-5">
                             <h3 class="post-title">{{article.titre }}</h3>
                             <div class="post-meta">
-                                {{[article.contenu| u.truncate(100)  , "..."] | join | raw}}
+                                {{article.contenu| u.truncate(100, ' ...', false) | raw}}
                             </div>
                         </div>
                         <div class="col">
