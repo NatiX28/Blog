@@ -2702,13 +2702,21 @@ i{
   float: none; 
   text-align: center;
   background-color: #428bca;
-  color:#ff8100;
 }
 
 .card-header{
   font-size: 26px;
 }
 
-a:hover {
- color: #428bca;
+.list-group-item:hover {
+  background-color: #1c5c93;
+  font-size: 22px;
+}
+
+#lien_categ{
+  color: #222222;
+}
+
+#lien_categ:hover{
+  color:#fff;
 }
