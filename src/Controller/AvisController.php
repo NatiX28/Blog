@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\SecurityBundle\Security;
+use App\Entity\Article;
 
 #[Route('/avis')]
 class AvisController extends AbstractController
@@ -22,14 +24,21 @@ class AvisController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_avis_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function __construct(
+        private Security $security,
+    ){
+    }
+
+    #[Route('/{id}/new', name: 'app_avis_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager, int $id): Response
     {
         $avi = new Avis();
         $form = $this->createForm(AvisType::class, $avi);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $avi->setUtilisateur($this->security->getUser());
+            $avi->setLarticle($entityManager->getRepository(Article::class)->find($id));
             $entityManager->persist($avi);
             $entityManager->flush();
 

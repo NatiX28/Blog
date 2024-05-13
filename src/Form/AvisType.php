@@ -13,8 +13,6 @@ class AvisType extends AbstractType
     {
         $builder
             ->add('note')
-            ->add('utilisateur')
-            ->add('larticle')
         ;
     }
 

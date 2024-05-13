@@ -44,7 +44,7 @@
                 <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-main">Éditer</a>
             {% endif %}
 
-            <a {% if is_granted('IS_AUTHENTICATED_FULLY') %} href="{{ path('app_avis_new') }}"{% else %} href="{{ path('app_login')}}"{% endif %} class="btn btn-main" style="right:200px">Laisser un avis</a>
+            <a {% if is_granted('IS_AUTHENTICATED_FULLY') %} href="{{ path('app_avis_new', {'id': article.id}) }}"{% else %} href="{{ path('app_login')}}"{% endif %} class="btn btn-main" style="right:200px">Laisser un avis</a>
         </div>
     </div>
 </div>
