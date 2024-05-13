@@ -74,6 +74,8 @@ Le lancement du blog nécessite :
 # Clonez le projet
 $ git clone https://github.com/NatiX28/Blog-SIO
 
+$ cd Blog-SIO
+
 # Dans le dossier
 $ composer install
 
